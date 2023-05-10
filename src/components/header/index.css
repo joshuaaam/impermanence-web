@@ -1,0 +1,14 @@
+.menu{
+    display: flex;
+    /* width: 50%; */
+    padding: 100px 0 0;
+    color: #333;
+}
+.menu .menu-item{
+    margin-right: 20px;
+}
+.menu .menu-item a{
+    text-decoration: none;
+    color: #333;
+
+}

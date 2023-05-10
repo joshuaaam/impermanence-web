@@ -38,7 +38,8 @@ export default function HomePage() {
     <li className="blog-item" key={i}>
       <h2>{item.title}</h2>
       <div>{item.desc}</div>
-      <div className="create-time">2023.05.08</div>
+      <div className="create-time">
+        2023.05.08</div>
     </li>
   ));
 
