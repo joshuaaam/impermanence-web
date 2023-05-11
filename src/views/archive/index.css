@@ -1,24 +1,17 @@
-.home-page{
+.archive-page{
     color: #333;
     /* width: 800px; */
-    /* padding: 0 100px; */
+    padding: 50px 0 0;
 }
-.home-page ul .blog-item{
-    /* padding: 20px 0; */
-    margin-top: 50px;
-    border-bottom: 1px solid #f3f3f3;
+.archive-page ul li{
+    padding: 10px 0;
 }
-.home-page ul .blog-item h2{
-    /* padding: 20px 0; */
-    /* border-bottom: 1px solid #f3f3f3; */
-    font-size: 1.4rem;
-    margin: 0 0 6px 0;
+.archive-page ul li .year{
+    padding: 10px 0;
+    font-weight: bold;
 }
-.home-page ul .blog-item .create-time{
-    display: block;
-    margin-top: 3px;
-    margin-bottom: 1rem;
-    color: #999;
-    font-family: "Quattrocento Sans", sans-serif;
-    font-size: 0.8rem;
+
+.archive-page ul li h4{
+    padding: 10px 0;
+    font-weight: 400;
 }
