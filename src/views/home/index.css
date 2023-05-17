@@ -7,6 +7,8 @@
     /* padding: 20px 0; */
     margin-top: 50px;
     border-bottom: 1px solid #f3f3f3;
+    cursor: pointer;
+
 }
 .home-page ul .blog-item h2{
     /* padding: 20px 0; */
