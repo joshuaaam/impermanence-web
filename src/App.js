@@ -13,6 +13,8 @@ import 'md-editor-rt/lib/style.css';
 // import axios from "axios"
 import Home from './views/home/index'
 import Archive from './views/archive/index'
+import Detail from './views/detail/index'
+
 
 import Head from './components/header/index'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -47,7 +49,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/archive" element={<Archive></Archive>} />
+          <Route path="/detail" element={<Detail></Detail>} />
+
           <Route path="/about" element={<div></div>} />
+          
 
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
