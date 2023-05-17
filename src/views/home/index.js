@@ -1,46 +1,34 @@
-/*
- * @Author: g05047
- * @Date: 2023-05-10 10:07:11
- * @LastEditors: g05047
- * @LastEditTime: 2023-05-10 14:55:00
- */
 import "./index.css";
+import { useState,useEffect  } from 'react';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
-  // const [text, setText] = useState('');
+  const navigate = useNavigate();
+  const [list,setList] = useState([])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await axios.post('article/detail',{
-  //       id:26
-  //     },{headers: {'Content-Type': 'application/json;charset=UTF-8'},timeout: 150000});
-  //     console.log(result)
-  //     setText(result.data.data.content);
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get('app/getArticleList',{
+        page:1,pageSize:10
+      },{headers: {'Content-Type': 'application/json;charset=UTF-8'},timeout: 150000});
 
-  //   fetchData();
-  // }, []);
+      setList(result.data.data)
+    };
 
-  const list = [
-    {
-      title: "构建爬虫镜像【完整】",
-      desc:
-        "拉取centos7镜像，运行容器 docker pull centos:7 docker r... 完整阅读"
-    },
-    {
-      title: "构建爬虫镜像【完整】",
-      desc:
-        "拉取centos7镜像，运行容器 docker pull centos:7 docker r... 完整阅读"
-    }
-  ];
+    fetchData();
+  }, []);
+
 
   const listItem = list.map((item,i) => (
-    <li className="blog-item" key={i}>
-      <h2>{item.title}</h2>
+    <li className="blog-item"   key={i} > 
+      <h2 onClick={()=>{
+      navigate('detail',{ state: {id:item.id}})
+    }}>{item.title}</h2>
       <div>{item.desc}</div>
-      <div className="create-time">2023.05.08</div>
+      <div className="create-time">{item.create_time || '2023-05-10' }</div>
     </li>
-  ));
+  )); 
 
   return (
     <div className="home-page">
