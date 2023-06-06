@@ -18,33 +18,10 @@ export default function HomePage() {
     setText(result.data.data.content);
   };
 
-  // const useStyles = makeStyles((theme: Theme) => createStyles({
-  //   main: {
-  //       flexGrow: 1,
-  //       padding: theme.spacing(4),
-  //       paddingBottom: theme.spacing(3),
-  //       paddingTop: theme.spacing(12),
-  //       minHeight: 'calc(100% - 120px)',
-  //   },
-  //   drawer: {
-  //       flexShrink: 0,
-  //       width: 296,
-  //       '& svg': {
-  //           fontSize: "1.5rem"
-  //       }
-  //   },
-  //   paper: {
-  //       width: 296,
-  //       overflowY: 'hidden',
-  //   },
-  // }));
- 
+
   let handleScroll = function () {
     let changeNav_box = document.querySelector(".nav");
     let scrollY = window.scrollY;
-
-    // console.log(listHeight.current.offsetTop)
-    // console.log(listHeight.current.offsetLeft)
 
     if (scrollY >= listHeight.current.offsetTop) {
       changeNav_box.style.position = "fixed";
@@ -60,12 +37,16 @@ export default function HomePage() {
   fetchData()
 
   useEffect(() => {
+    // 滚动事件
     window.addEventListener("scroll", handleScroll)
-    // handleScroll()
+    // 浏览器窗口大小发生变化
+    window.addEventListener("resize", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleScroll)
     }
   },);
+
 
   return (
     <div className="detail-content">
